@@ -62,10 +62,7 @@
         </main>
 
     </section>
-<script>
-    function toggleMusic() {
-    const music = document.getElementById("bgMusic");
-    const btn = document.getElementById("musicBtn");
+    <script>
     if (!isPlaying) {
         music.play().catch(error => {
             console.error("Audio play failed:", error);
@@ -79,9 +76,12 @@
         btn.innerText = "Play"; 
     }
 }
-window.addEventListener('click', () => {
+document.getElementById("musicBtn").addEventListener("click", toggleMusic);
+
+window.addEventListener('load', () => {
     const music = document.getElementById("bgMusic");
     music.play().catch(() => {
+
         console.log("Autoplay blocked, waiting for user interaction.");
     });
 });
@@ -91,4 +91,5 @@ window.addEventListener('click', () => {
   </body>
 
 </html>
+
 
