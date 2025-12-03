@@ -79,7 +79,7 @@
         btn.innerText = "Play"; 
     }
 }
-window.addEventListener('load', () => {
+window.addEventListener('click', () => {
     const music = document.getElementById("bgMusic");
     music.play().catch(() => {
         console.log("Autoplay blocked, waiting for user interaction.");
@@ -91,3 +91,4 @@ window.addEventListener('load', () => {
   </body>
 
 </html>
+
