@@ -58,43 +58,38 @@
             <a href="envelope.html" class="btn btn-lg">Begin the Bloom</a>
             <button class="btn btn-lg" onclick="toggleMusic()" id="musicBtn">Play</button>
 
-            <audio id="bgMusic" src="https://github.com/flewspark/RSVP-Arunika-Aksara/tree/main/audio/coffeetime.mp3" type="audio/mpeg" loop></audio>
+            <audio id="bgMusic" loop> <source src="https://github.com/flewspark/RSVP-Arunika-Aksara/tree/main/audio/coffeetime.mp3" type="audio/mpeg"></audio>
         </main>
 
     </section>
     <script>
-       if (!isPlaying) {
-        music.play().catch(error => {
-            console.error("Audio play failed:", error);
-            alert("Audio tidak dapat diputar. Pastikan file audio tersedia dan browser mendukung.");
-        });
-        isPlaying = true;
-        btn.innerText = "Pause"; 
-    } else {
-        music.pause();
-        isPlaying = false;
-        btn.innerText = "Play"; 
+    let isPlaying = false;
+
+    function toggleMusic() {
+        const music = document.getElementById("bgMusic");
+        const btn = document.getElementById("musicBtn");
+        
+        if (!isPlaying) {
+            music.play();
+            isPlaying = true;
+            btn.innerText = "Pause"; 
+        } else {
+            music.pause();
+            isPlaying = false;
+            btn.innerText = "Play"; 
+        }
     }
-}
 
-document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("musicBtn").addEventListener("click", toggleMusic);
-});
-
-window.addEventListener('load', () => {
-    const music = document.getElementById("bgMusic");
-    music.play().catch(() => {
-       
-        console.log("Autoplay blocked, waiting for user interaction.");
+    document.addEventListener("DOMContentLoaded", function() {
+        document.getElementById("musicBtn").addEventListener("click", toggleMusic);
     });
-});
 </script>
-
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   </body>
 
 </html>
+
 
 
 
